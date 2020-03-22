@@ -15,7 +15,6 @@ public class Circle {
         this.r = r;
     }
 
-    //напишите тут ваш код
     public static void main(String[] args) {
 
     }
