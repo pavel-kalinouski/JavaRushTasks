@@ -12,6 +12,7 @@ target/
 *.properties
 *.jar
 
+
 /2.JavaCore/
 /3.JavaMultithreading/
 /4.JavaCollections/
