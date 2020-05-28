@@ -20,38 +20,22 @@ public class Solution {
     public static void main(String[] args) {
         //напишите тут ваш код
 
+
         Human child1 = new Human("Стёпа", true, 11);
-        child1.children = new ArrayList<Human>();
-        System.out.println(child1.toString());
         Human child2 = new Human("Арсений", true, 7);
-        child2.children = new ArrayList<Human>();
-        System.out.println(child2.toString());
         Human child3 = new Human("Марго", false, 5);
-        child3.children = new ArrayList<Human>();
-        System.out.println(child3.toString());
+        ArrayList<Human> children1 = new ArrayList<Human>(Arrays.asList(child1, child2, child3));
 
 
-        Human mother = new Human("мать", false, 31);
-        mother.children = new ArrayList<Human>(Arrays.asList(child1, child2, child3));
-        System.out.println(mother.toString());
+        Human mother = new Human("мать", false, 31, children1);
+        Human father = new Human("отец", true, 32, children1);
+        ArrayList<Human> children2 = new ArrayList<Human>(Arrays.asList(mother));
+        ArrayList<Human> children3 = new ArrayList<Human>(Arrays.asList(father));
 
-        Human father = new Human("отец", true, 32);
-        father.children = new ArrayList<Human>(Arrays.asList(child1, child2, child3));
-        System.out.println(father.toString());
-
-        Human grandfather2 = new Human("Дед2", true, 70);
-        grandfather2.children = new ArrayList<Human>(Arrays.asList(mother));
-        System.out.println(grandfather2.toString());
-        Human grandmother2 = new Human("Бабка2", false, 71);
-        grandmother2.children = new ArrayList<Human>(Arrays.asList(mother));
-        System.out.println(grandmother2.toString());
-
-        Human grandfather1 = new Human("Дед1", true, 68);
-        grandfather1.children = new ArrayList<Human>(Arrays.asList(father));
-        System.out.println(grandfather1.toString());
-        Human grandmother1 = new Human("Бабка1", false, 69);
-        grandmother1.children = new ArrayList<Human>(Arrays.asList(father));
-        System.out.println(grandmother1.toString());
+        Human grandfather2 = new Human("Дед2", true, 70, children2);
+        Human grandmother2 = new Human("Бабка2", false, 71, children2);
+        Human grandfather1 = new Human("Дед1", true, 68, children3);
+        Human grandmother1 = new Human("Бабка1", false, 69, children3);
 
     }
 
@@ -66,6 +50,16 @@ public class Solution {
             this.name = name;
             this.sex = sex;
             this.age = age;
+            this.children = new ArrayList<Human>();
+            System.out.println(this.toString());
+        }
+
+        public Human(String name, boolean sex, int age, ArrayList<Human> children) {
+            this.name = name;
+            this.sex = sex;
+            this.age = age;
+            this.children = children;
+            System.out.println(this.toString());
         }
 
         public String toString() {
